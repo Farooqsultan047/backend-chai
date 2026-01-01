@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 const userSchema = new Schema({
   watchHistory: [{
     type: Types.ObjectId,
-    ref: 'videos',       // reference to videos collection
+    ref: 'videos',       
     required: false
   }],
   username: {
@@ -52,7 +52,7 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now
   }
-}, { timestamps: true }); // automatically manage createdAt and updatedAt
+}, { timestamps: true }); 
 userSchema.pre("save", async function (next) {
     if(!this.isModified("password")) 
         return next();
